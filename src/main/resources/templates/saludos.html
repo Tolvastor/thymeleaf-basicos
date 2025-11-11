@@ -7,18 +7,19 @@
 <body>
 <h1>Formulario de saludo</h1>
 
-<form th:action="@{/SaludoDTO}" th:object="${SaludoDTO}" method="post">
+<form method="post" th:object="${saludoDTO}" th:action="@{/saludoDTO}">
 <label>Nombre</label>
-<input th:field="*{nombre}"/>
-<br/>
-<label>Apellido</label>
-<input th:field="*{apellido1}"/>
-<br/>
-<label>Apellido2</label>
-<input th:field="*{apellido2}"/>
-<br/>
-<button type="submit">Enviar</button>
-</form>
+<input type="text" id="nombre" name="nombre" required/>
+<select id="idioma" name="idioma">
+    <option value="es">Español</option>
+    <option value="en">Inglés</option>
+    <option value="fr">Francés</option>
+    <option value="de">Alemán</option>
 
+</select>
+    </form>
+<div th:if="${saludoDTO ">
+
+    <button type="submit">Enviar</button>
 </body>
 </html>
