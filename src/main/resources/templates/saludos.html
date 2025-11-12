@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Saludos</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
 </head>
 <body>
 <h1>Formulario de saludo</h1>
+<br>
 
-<form method="post" th:object="${saludoDTO}" th:action="@{/saludoDTO}">
-<label>Nombre</label>
-<input type="text" id="nombre" name="nombre" required/>
-<select id="idioma" name="idioma">
-    <option value="es">Español</option>
-    <option value="en">Inglés</option>
-    <option value="fr">Francés</option>
-    <option value="de">Alemán</option>
+<form method="post" th:object="${saludoDTO}" th:action="@{/saludos}">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required/>
 
-</select>
-    </form>
-<div th:if="${saludoDTO ">
+    <label for="idioma">Idioma</label>
+    <select id="idioma" th:field="*{idioma}">
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+        <option value="fr">Francés</option>
+        <option value="de">Alemán</option>
+    </select>
 
     <button type="submit">Enviar</button>
+</form>
+<div class="span">
+<div th:if="${saludo}">
+    <span th:text="${saludo}"></span>
+</div>
+
+</div>
+
+
 </body>
 </html>
