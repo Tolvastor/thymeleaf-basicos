@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>cuadratica</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<form th:action="@{/cuadratica/formulario/enviar}" th:object="${cuadraticaDTO}" method="post" >
+    <label for="a">a</label>
+    <input type="number" step="any" id="a" th:field="*{a}"/>
+    <label for="b">b</label>
+    <input type="number" step="any" id="b" th:field="*{b}"/>
+    <label for="c">c</label>
+    <input type="number" step="any" id="c" th:field="*{c}"/>
+    <button>Enviar</button>
+</form>
+
+<div th:if="${msg}">
+    <span th:text="${msg}"></span>
+    <th:block th:if="${raiz1 !=null and raiz2 !=null}" >
+    <span>Raiz1</span><input th:value="${raiz1}" readonly>
+    <span>Raiz2</span><input th:value="${raiz2}" readonly>
+    </th:block>
+</div>
+</body>
+</html>
